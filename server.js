@@ -3,6 +3,7 @@ const app = express();
 const db = require('./db'); // Corrected import path to db.js
 const bodyParser = require('body-parser');
 const MenuItem = require('./models/MenuItem');
+require('dotenv').config();
 
 
 app.use(bodyParser.json());
@@ -23,6 +24,9 @@ app.use('/menu', menuItemRoutes);
 
 
 
-app.listen(3000, () => {
+const PORT = process.env.PORT || 3000;
+
+
+app.listen(PORT,() => {
     console.log("Server is listening on port number 3000");
-});
+})
